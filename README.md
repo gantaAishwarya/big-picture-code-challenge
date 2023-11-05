@@ -10,7 +10,8 @@ cd big-picture-code-challenge/.ci-cd
 ```bash
 docker-compose up
 ```
-This creates a container with python and installs all the required python packages.
+This creates a container with python and installs all the required python packages. Additionally setups a nginx server and serves the wsgi application on port 80.
+
 Note: Python 3 is used to develop this project and necessary python libraries will be installed into the docker container automatically based on the provided Dockerfile. To have a detailed overview of python library requirements along with uwsgi and nginx configurations see requirements.txt and application.ini and nginx.conf files in the resources directory. The data model used to store the data is found in the model directory.
 
 ## Testing the endpoints
