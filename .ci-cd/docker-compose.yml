@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  admin-backend:
+    build: 
+      context: ../
+      dockerfile: ./.ci-cd/Dockerfile
+    image: bigpicture:first
+    volumes:
+      - ../data:/home/application-user/application/data
+    #env_file:
+      #- .env_file
+    ports:
+      - "80:80"
+      - "443:443"
+
+

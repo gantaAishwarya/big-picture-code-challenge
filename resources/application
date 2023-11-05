@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    server_name 0.0.0.0;
+
+    location / {
+        add_header Access-Control-Allow-Origin *;
+        include uwsgi_params;
+        uwsgi_pass unix:/home/application-user/application/application.sock;
+    }
+}

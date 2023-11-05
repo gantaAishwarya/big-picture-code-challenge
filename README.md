@@ -1,4 +1,56 @@
-# Big Picture Coding Challenge - Backend - Book Library API
+## Description
+This project is intended to serve the requirements of a Backed system which are part of a task provided by BigPicture GmbH. To be able to use or review the working of the project please follow the usage section below.
+
+## Usage
+To run the project in a docker container
+
+``` bash
+cd big-picture-code-challenge/.ci-cd
+```
+```bash
+docker-compose up
+```
+This creates a container with python and installs all the required python packages.
+Note: Python 3 is used to develop this project and necessary python libraries will be installed into the docker container automatically based on the provided Dockerfile. To have a detailed overview of python library requirements along with uwsgi and nginx configurations see requirements.txt and application.ini and nginx.conf files in the resources directory. The data model used to store the data is found in the model directory.
+
+## Testing the endpoints
+The backend server can be reached using http://127.0.0.1 or using http://localhost
+The backend provides 3 endpoints to serve the following tasks
+- **Endpoint 1**: Fetch Book Details by ISBN
+
+      `GET /isbn/<isbn>`:
+      - Returns a JSON including: author, title, summary, cover_url.
+      Example: http://localhost/isbn/1878424319
+
+    - **Endpoint 2**: Save Book Details to our Library
+
+      `POST /books` with body `JSON: {isbn: "ISBN_NUMBER_HERE"}`:
+      - This will save the book's details to our library database.
+
+      Example: 
+          http://localhost/books
+
+          expected body:
+          {
+            isbn: 1878424319
+          }
+  
+    - **Endpoint 3**: List All Books in our Library
+
+      `GET /books`:
+      - Returns a list of all books stored in our library.
+      - Use a format, so the fronend can render all information from this one JSON
+
+      Example: http://localhost/books
+## Tech stack used
+- Python 3
+- Flask
+- Flask-SQLAlchemy
+- nginx
+- uWSGI
+
+# Original Instructions
+## Big Picture Coding Challenge - Backend - Book Library API
 
 **To work on this challenge, please create a fork of it to your own github account**
 
